@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            margin-left: 440px;
+            margin-top: 170px;
+        }
+
+        td {
+            height: 80px;
+            width: 80px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <span>
+            <p id="print"
+                style="color: red;font-size:30px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; margin-left: 10px;">
+            </p>
+        </span>
+
+        <table style="border: 3px solid black;" id="mytable">
+            <tbody id="tb">
+                <tr id="row1">
+                    <td id="t1" onclick="myfunc(this.id)" class="cls"></td>
+                    <td id="t2" onclick="myfunc(this.id)" class="cls"></td>
+                    <td id="t3" onclick="myfunc(this.id)" class="cls"></td>
+                </tr>
+                <tr id="row2">
+                    <td id="t4" onclick="myfunc(this.id)" class="cls"></td>
+                    <td id="t5" onclick="myfunc(this.id)" class="cls"></td>
+                    <td id="t6" onclick="myfunc(this.id)" class="cls"></td>
+                </tr>
+                <tr id="row3">
+                    <td id="t7" onclick="myfunc(this.id)" class="cls"></td>
+                    <td id="t8" onclick="myfunc(this.id)" class="cls"></td>
+                    <td id="t9" onclick="myfunc(this.id)" class="cls"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <span>
+            <p id="print1"
+                style="color: rgb(39, 36, 209);font-size:30px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; margin-left: 0px;">
+            </p>
+        </span>
+        <p id="demo2" style="color: rgb(105, 105, 96);font-size: 25px;"></p>
+        <p id="demo3" style="color: rgb(105, 105, 96);font-size: 25px;"></p>
+        <p id="demo4" style="color: rgb(105, 105, 96);font-size: 25px;"></p>
+        
+
+
+    </div>
+
+    <script>
+
+
+        var num = 0;
+        function myfunc(id) {
+            if (num % 2 == 0) {
+                document.getElementsByClassName("cls")[id].innerHTML = "X";
+                document.getElementById("demo2").innerHTML = "Now its O's turn";
+                num++;
+            }
+            else {
+                document.getElementsByClassName("cls")[id].innerHTML = "O";
+                document.getElementById("demo2").innerHTML = "Now its X's turn";
+                num++;
+
+            }
+           
+            b1 = document.getElementById("t1");
+            b2 = document.getElementById("t2");
+            b3 = document.getElementById("t3");
+            b4 = document.getElementById("t4");
+            b5 = document.getElementById("t5");
+            b6 = document.getElementById("t6");
+            b7 = document.getElementById("t7");
+            b8 = document.getElementById("t8");
+            b9 = document.getElementById("t9");
+            c = document.getElementById("print");
+            d = document.getElementById("print1");
+            m = document.getElementsByClassName("cls")[id];
+            check(id);
+
+        }
+        function check(id) {
+            if (b1.innerHTML == "X" && b2.innerHTML == "X" && b3.innerHTML == "X") {
+                console.log(b1);
+                document.getElementById("demo2").innerHTML = "";
+                c.innerHTML = "Player X  Won!!!";
+                d.innerHTML = "Player O Better Luck Next Time!";
+               gameOver(b1,b2,b3);
+
+            }
+            else if (b4.innerHTML == "X" && b5.innerHTML == "X" && b6.innerHTML == "X") {
+                document.getElementById("demo2").innerHTML = "";
+                c.innerHTML = "Player X  Won!!!";
+                d.innerHTML = "Player O Better Luck Next Time!";
+                gameOver(b4,b5,b6);
+
+            }
+            else if (b7.innerHTML == "X" && b8.innerHTML == "X" && b9.innerHTML == "X") {
+                c.innerHTML = "Player X  Won!!!";
+                d.innerHTML = "Player O Better Luck Next Time!";
+               gameOver(b7,b8,b9);
+
+            }
+
+            else if (b1.innerHTML == "X" && b4.innerHTML == "X" && b7.innerHTML == "X") {
+                c.innerHTML = "Player X  Won!!!";
+                d.innerHTML = "Player O Better Luck Next Time!";
+                gameOver(b1,b4,b7);
+
+            }
+            else if (b2.innerHTML == "X" && b5.innerHTML == "X" && b8.innerHTML == "X") {
+                c.innerHTML = "Player X  Won!!!";
+                d.innerHTML = "Player O Better Luck Next Time!";
+                gameOver(b2,b5,b8);
+
+            }
+            else if (b3.innerHTML == "X" && b6.innerHTML == "X" && b9.innerHTML == "X") {
+                c.innerHTML = "Player X  Won!!!";
+                d.innerHTML = "Player O Better Luck Next Time!";
+               gameOver(b3,b6,b9);
+
+
+            }
+
+            else if (b1.innerHTML == "X" && b5.innerHTML == "X" && b9.innerHTML == "X") {
+                c.innerHTML = "Player O  Won!!!";
+                d.innerHTML = "Player X Better Luck Next Time!";
+               gameOver(b1,b5,b9);
+
+            }
+            else if (b3.innerHTML == "X" && b5.innerHTML == "X" && b7.innerHTML == "X") {
+                c.innerHTML = "Player X  Won!!!";
+                d.innerHTML = "Player O  Better Luck Next Time!";
+              
+                gameOver(b3,b5,b7);
+            }
+            else if (b1.innerHTML == "O" && b2.innerHTML == "O" && b3.innerHTML == "O") {
+                c.innerHTML = "Player O  Won!!!";
+                d.innerHTML = "Player X Better Luck Next Time!";
+               gameOver(b1,b2,b3);
+
+
+            }
+            else if (b4.innerHTML == "O" && b5.innerHTML == "O" && b6.innerHTML == "O") {
+                c.innerHTML = "Player O  Won!!!";
+                d.innerHTML = "Player X Better Luck Next Time!";
+
+                gameOver(b4,b5,b6);
+
+            }
+            else if (b7.innerHTML == "O" && b8.innerHTML == "O" && b9.innerHTML == "O") {
+                c.innerHTML = "Player O  Won!!!";
+                d.innerHTML = "Player X Better Luck Next Time!";
+                gameOver(b7,b8,b9);
+            }
+
+            else if (b1.innerHTML == "O" && b4.innerHTML == "O" && b7.innerHTML == "O") {
+                c.innerHTML = "Player O Won!!!";
+                d.innerHTML = "Player X Better Luck Next Time!";
+               gameOver(b1,b4,b7);
+
+            }
+
+            else if (b2.innerHTML == "O" && b5.innerHTML == "O" && b8.innerHTML == "O") {
+                c.innerHTML = "Player O  Won!!!";
+                d.innerHTML = "Player X Better Luck Next Time!";
+                gameOver(b2,b5,b8);
+
+            }
+
+            else if (b3.innerHTML == "O" && b6.innerHTML == "O" && b9.innerHTML == "O") {
+                c.innerHTML = "Player O  Won!!!";
+                d.innerHTML = "Player X Better Luck Next Time!";
+                gameOver(b3,b6,b9);
+             
+
+            }
+
+            else if (b1.innerHTML == "O" && b5.innerHTML == "O" && b9.innerHTML == "O") {
+
+                c.innerHTML = "Player O  Won!!!";
+                d.innerHTML = "Player X Better Luck Next Time!";
+                gameOver(b1,b5,b9);
+
+            }
+            else if (b3.innerHTML == "O" && b5.innerHTML == "O" && b7.innerHTML == "O") {
+                c.innerHTML = "Player O  Won!!!";
+                d.innerHTML = "Player X Better Luck Next Time!";
+                document.getElementById("demo2").innerHTML = "";
+
+            }
+            
+        }
+        function gameOver(e1,e2,e3){
+            document.getElementById("mytable").style.pointerEvents = "none";
+            document.getElementById("demo2").innerHTML = "";
+            e1.style.backgroundColor = "green";
+            e2.style.backgroundColor = "green";
+            e3.style.backgroundColor = "green";
+        }
+        
+
+
+    </script>
+</body>
+
+</html>
